@@ -11,8 +11,9 @@ class Todo extends React.Component {
     return (
       <li
         style={{"textDecoration": this.props.task.completed ? "line-through" : null }}
-        className="btn btn-default">
+        className="btn btn-default"
         onClick={ (e) => this.props.toggleDone(e, this.props.index) }
+        >
         <button
           className="btn btn-default"
           onClick={ (e) => this.props.remove(e, this.props.index) }

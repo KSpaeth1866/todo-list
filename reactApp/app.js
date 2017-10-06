@@ -1,76 +1,29 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const dummyData = ["Call mom", "Clean bedroom", "Apply for jobs", "Buy a cat"]
+import InputLine from './components/InputLine'
+import Todo from './components/Todo'
+import TodoApp from './components/TodoApp'
+import TodoList from './components/TodoList'
 
-class TodoApp extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
-
-  render() {
-    return (
-      <div>
-        <div>
-          <InputLine />
-        </div>
-        <div>
-          <TodoList list={this.props.list}/>
-        </div>
-      </div>
-    )
-  }
-}
-
-class InputLine extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-
-    }
-  }
-
-  render() {
-    return (
-      <h1>InputLine placeholder</h1>
-    )
-  }
-}
-
-class TodoList extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>TodoList Title Placeholder</h1>
-        <ul>
-          {this.props.list.map( (task) => (<Todo key={task} task={task}/>) )}
-        </ul>
-      </div>
-    )
-  }
-}
-
-class Todo extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
-
-  render() {
-    return (
-      <li>
-        <button>X</button>        
-        {this.props.task}
-      </li>
-    )
-  }
-}
+const dummyData = [
+  {
+    taskText: "Call mom",
+    completed: true,
+  },
+  {
+    taskText: "Clean bedroom",
+    completed: false,
+  },
+  {
+    taskText: "Apply for jobs",
+    completed: false,
+  },
+  {
+    taskText: "Buy a cat",
+    completed: false,
+  },
+  ]
 
 ReactDOM.render(
   <TodoApp list={dummyData}/>,

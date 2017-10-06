@@ -12,6 +12,7 @@ class TodoApp extends React.Component {
     }
     this.addTodo = this.addTodo.bind(this)
     this.removeTodo = this.removeTodo.bind(this)
+    this.toggleDone = this.toggleDone.bind(this)
   }
 
   componentDidMount() {
@@ -40,6 +41,15 @@ class TodoApp extends React.Component {
     })
   }
 
+  toggleDone(e, index) {
+    e.preventDefault();
+    const list = this.state.list.slice();
+    list[index].completed = !list[index].completed
+    this.setState({
+      list,
+    })
+  }
+
   render() {
     return (
       <div>
@@ -53,6 +63,7 @@ class TodoApp extends React.Component {
           <TodoList
             list={this.state.list}
             remove={this.removeTodo}
+            toggleDone={this.toggleDone}
           />
         </div>
       </div>

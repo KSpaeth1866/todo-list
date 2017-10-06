@@ -11,6 +11,7 @@ class TodoApp extends React.Component {
       list: [],
     }
     this.addTodo = this.addTodo.bind(this)
+    this.removeTodo = this.removeTodo.bind(this)
   }
 
   componentDidMount() {
@@ -19,7 +20,7 @@ class TodoApp extends React.Component {
     })
   }
 
-  addTodo(e,newTask) {
+  addTodo(e, newTask) {
     e.preventDefault();
     const list = this.state.list.slice()
     list.push({
@@ -29,7 +30,14 @@ class TodoApp extends React.Component {
     this.setState({
       list,
     })
+  }
 
+  removeTodo(e, index) {
+    e.preventDefault();
+    const list = [...this.state.list.slice(0, index),...this.state.list.slice(index + 1)]
+    this.setState({
+      list,
+    })
   }
 
   render() {
@@ -37,10 +45,15 @@ class TodoApp extends React.Component {
       <div>
         <h1>To Do List</h1>
         <div>
-          <InputLine submit={this.addTodo}/>
+          <InputLine
+            add={this.addTodo}
+          />
         </div>
         <div>
-          <TodoList list={this.state.list}/>
+          <TodoList
+            list={this.state.list}
+            remove={this.removeTodo}
+          />
         </div>
       </div>
     )

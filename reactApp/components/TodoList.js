@@ -13,7 +13,12 @@ class TodoList extends React.Component {
     return (
       <div>
         <ul>
-          {this.props.list.map( (task) => (<Todo key={task.taskText} task={task}/>) )}
+          {this.props.list.map( (task, index) => (<Todo
+            key={index}
+            task={task}
+            index={index}
+            remove={this.props.remove}
+          />) )}
         </ul>
       </div>
     )

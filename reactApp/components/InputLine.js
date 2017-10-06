@@ -27,7 +27,7 @@ class InputLine extends React.Component {
           />
           <button
             // type="submit"
-            onClick={ (e) => this.props.submit(e, this.state.newTask) }
+            onClick={ (e) => this.props.add(e, this.state.newTask) }
             className="btn btn-default"
           >
             Create New Task

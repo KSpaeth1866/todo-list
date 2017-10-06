@@ -12,7 +12,12 @@ class Todo extends React.Component {
       <li
         style={{"textDecoration": this.props.task.completed ? "line-through" : null }}
         className="btn btn-default">
-        <button>X</button>
+        <button
+          onClick={ (e) => this.props.remove(e, this.props.index) }
+          className="btn btn-default"
+        >
+          X
+        </button>
         {this.props.task.taskText}
       </li>
     )
